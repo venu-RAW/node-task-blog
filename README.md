@@ -1,8 +1,10 @@
 # node-task-blog
 
--> This is simple node application use to retreive all the blogs data from the json file and also we can get specific blog by using the id.
--> This application contains the read operations by using the core node module (i.e. "fs").
--> Also used other core module (i.e. "path") module to get the absolute path of the blogs.json file.
+This is simple node application use to retreive all the blogs data from the json file and also we can get specific blog by using the id.
+
+This application contains the read operations by using the core node module (i.e. "fs").
+
+Also used other core module (i.e. "path") module to get the absolute path of the blogs.json file.
 
 ---
 
