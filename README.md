@@ -44,6 +44,12 @@ QUICK NOTE: The current working directory (i.e. cwd) should always be the root d
 
    Note: 4 is the id of the blog with the specific id.
 
+   7.C. To get the blog specific to the query parameter.
+
+   http://localhost:3000/blogs/author=venusirpuram
+
+   Note: searching the blog specified by the author.
+
 8. Thats it.
 
 # Languages and tools used
