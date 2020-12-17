@@ -11,16 +11,20 @@ const getAllBlogs = (req, res) => {
 	if (req.query) {
 		let blog = blogData.filter((blog) => {
 			return Object.keys(req.query).every((key) => {
-				return (
-					blog[key]
-						.trim()
-						.replace(/[_-\s]/g, "")
-						.toLowerCase() ===
-					req.query[key]
-						.trim()
-						.replace(/[_-\s]/g, "")
-						.toLowerCase()
-				);
+				blog[key] = blog[key]
+					.trim()
+					.replace(/[_-\s]/g, "")
+					.toLowerCase();
+
+				req.query[key] = req.query[key]
+					.trim()
+					.replace(/[_-\s]/g, "")
+					.toLowerCase();
+
+				if (blog[key].includes(req.query[key])) {
+					// blog[key] = req.query[key];
+					return blog[key];
+				}
 			});
 		});
 
@@ -29,11 +33,12 @@ const getAllBlogs = (req, res) => {
 				status: "Unsuccessful",
 				data: "Blog not found",
 			});
+		} else {
+			res.status(200).json({
+				status: "Successful",
+				data: blog,
+			});
 		}
-		res.status(200).json({
-			status: "Successful",
-			data: blog,
-		});
 	} else {
 		res.status(200).json({
 			status: "Successful",
